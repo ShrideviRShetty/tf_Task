@@ -5,6 +5,9 @@ resource "aws_route_table" "public" {
     cidr_block = "0.0.0.0/0"
     gateway_id = aws_internet_gateway.gw.id
   }
+ tags = {
+  Name = "public rt"
+ }
 }
 
 resource "aws_route_table" "private" {
@@ -14,3 +17,7 @@ resource "aws_route_table" "private" {
     cidr_block     = "0.0.0.0/0"
     nat_gateway_id = aws_nat_gateway.nat.id
   }
+ tags = {
+  Name = "private rt"
+ }
+}
