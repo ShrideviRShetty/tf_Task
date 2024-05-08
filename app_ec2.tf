@@ -5,6 +5,8 @@ resource "aws_instance" "web" {
   subnet_id       = aws_subnet.public.id
   key_name        = "simple"
   security_groups = [aws_security_group.web.id]
-
   user_data = file("nginx.sh")
+  tags = {
+  Name = "webInstance"
+ }
 }
