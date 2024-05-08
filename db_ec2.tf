@@ -5,6 +5,8 @@ resource "aws_instance" "db" {
   subnet_id       = aws_subnet.private.id
   key_name        = "simple"
   security_groups = [aws_security_group.db.id]
-
   user_data = file("msql.sh")
+  tags = {
+  Name = "dbInstance"
+ }
 }
